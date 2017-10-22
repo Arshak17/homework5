@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+		<canvas id = "canvas" width ="500" height = "300">
+		</canvas>
+		<script>	
+			
+			const canvas = document.getElementById("canvas");
+			const context = canvas.getContext("2d");
+			const colorArray = ['red', 'green', 'orange'];
+			const point = [];
+			const forEach = function(arr, func){
+				const helper = function(index){
+					if (index === arr.length){
+						return;
+					}
+					
+					func(arr[index]);
+					
+					helper(index + 1);
+				};
+				helper(0);
+			};
+			const draw = function(){
+				forEach(point, function(point){
+					context.fillStyle = point.color;
+					context.fillRect(point.x, point.y, point.width, point.height);
+				});
+			};
+			
+			const createPoints = function(count, canvasWidth, canvasHeight) {
+				const rand = function(num) {
+						return Math.floor(Math.random() * num) + 1;
+					};
+				if(count === 0)
+					return;
+				point[point.length] = {
+							x: rand(canvasWidth - 30),
+							y: rand(canvasHeight - 30),
+							width: 30,
+							height: 30,
+							xDelta: 1,
+							yDelta: 1,
+							color: colorArray[rand(3)-1]  
+						};
+				count--;
+				createPoints(count, canvasWidth, canvasHeight);
+			};
+			createPoints(10, canvas.width, canvas.height);
+			draw();
+		</script>
+	</body>
+</html>
