@@ -41,7 +41,7 @@
 			
 			document.addEventListener('keydown', function(event) {
 				const hero = gameData.hero;
-				debugger;
+	
 				if(event.keyCode === upKey && hero.y - hero.yDelta >= 0 ) {
 					hero.y = hero.y - hero.yDelta;
 				}else if(event.keyCode === downKey && hero.y + hero.yDelta <= canvas.height) {
@@ -90,7 +90,7 @@
 				});
 			};
 			const rand = function(num) {
-						return Math.floor(Math.random() * num) + 1;
+			      return Math.floor(Math.random() * num) + 1;
 			};
 			const createCharacter = function(count, canvasWidth, canvasHeight) {
 				if(count === 0)
@@ -112,13 +112,13 @@
 				forEach(enemies, function(enemy){
 					if(enemy.x >= canvas.width - enemy.width){
 						enemy.xDelta = (-1)*enemy.xDelta;
-					}else if(enemy.x <= 0){
+					} else if(enemy.x <= 0){
 						enemy.xDelta = (-1)*enemy.xDelta;
 					}
 						
 					if(enemy.y >= canvas.height - enemy.height){
 						enemy.yDelta = (-1)*enemy.yDelta;
-					}else if(enemy.y <= 0){
+					} else if(enemy.y <= 0){
 						enemy.yDelta = (-1)*enemy.yDelta;
 					}
 					enemy.x += enemy.xDelta;
@@ -134,7 +134,6 @@
 			};
 
 			createCharacter(10, canvas.width, canvas.height);
-			//debugger;
 			loop();
 		</script>
 	</body>
