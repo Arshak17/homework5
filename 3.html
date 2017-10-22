@@ -26,11 +26,11 @@
 			const gameData = {
 				hero: {
 					x: 0,
-					y: 0,
-					width: 70,
-					height: 70,
-					xDelta: 5,
-					yDelta: 5,
+					y: 750,
+					width: 90,
+					height: 90,
+					xDelta: 12,
+					yDelta: 12,
 					img: heroImg  
 				},
 				badGuys: []
@@ -96,10 +96,10 @@
 					return;
 					
 				enemies[enemies.length] = {
-							x: rand(canvasWidth - 90),
-							y: rand(canvasHeight - 90),
-							width: 90,
-							height: 90,
+							x: rand(canvasWidth - 75),
+							y: rand(canvasHeight - 75),
+							width: 75,
+							height: 75,
 							xDelta: 2,
 							yDelta: 2,
 							img: enemyImg
